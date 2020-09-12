@@ -11,8 +11,4 @@ if __name__ == "__main__":
         day = Path(__file__).parts[-2]
         print("Not implemented:", day, file=sys.stderr)
         exit(1)
-    try:
-        main(fileinput.input())
-    except Exception as e:
-        print(repr(e), file=sys.stderr)
-        exit(1)
+    main(fileinput.input())

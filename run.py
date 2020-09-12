@@ -12,7 +12,10 @@ def timed(f):
         t0 = time.perf_counter()
         res = f(*args)
         t1 = time.perf_counter()
-        print(f"{t1 - t0:.04g}s | {f.__qualname__}({', '.join(args)})", file=sys.stderr)
+        t = t1 - t0
+        m = int(t / 60)
+        t -= 60 * m
+        print(f"{m}:{t:.04} | {f.__qualname__}({', '.join(args)})", file=sys.stderr)
         return res
 
     return wrap
@@ -27,16 +30,19 @@ def run_day(day):
     try:
         with open(os.path.join(day, "input.txt")) as f:
             mod.main(f)
+            return
     except FileNotFoundError:
-        mod.main()
+        pass
+    mod.main()
 
 
 def main(days):
     for day in days:
         try:
+            print("*" *  40, file=sys.stderr)
             run_day(day)
-        except Exception as e:
-            print(day, repr(e), file=sys.stderr)
+        except (Exception, KeyboardInterrupt) as e:
+            print("\n" + day, repr(e), file=sys.stderr)
 
 
 if __name__ == "__main__":
