@@ -29,7 +29,7 @@ def part2(key, maze, move):
     return max(map(len, paths(key, maze, move)))
 
 
-def main():
+def main(_=None):
     print("Day 17")
     key = "pvhmgsws"
 

@@ -47,7 +47,7 @@ def part2(hashes):
     return "".join(password)
 
 
-def main():
+def main(_=None):
     key = "cxdnnyjw"
     hasher = Hasher(key)
     A = part1(iter(hasher))

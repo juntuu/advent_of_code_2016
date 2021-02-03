@@ -34,7 +34,7 @@ def part2(space):
     return len(visited)
 
 
-def main():
+def main(_=None):
     print("Day 13")
     number = 1362
 

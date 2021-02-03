@@ -23,7 +23,7 @@ def part2(state):
     return check_sum(state[:n])
 
 
-def main():
+def main(_=None):
     print("Day 16")
     state = "01111010110010011"
     A = part1(state)
